@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Тест по JavaScript</title>
+<style>
+  body {
+    background-color: #121212;
+    color: #e0e0e0; 
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  #js-test-form {
+    width: 90%;
+    max-width: 600px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+
+  .question-block {
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: #ff5555; 
+  }
+
+  label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  button {
+    background-color: #ff5555; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  button:hover {
+    background-color: #ff4444;
+  }
+
+  p {
+    color: #a0a0a0; 
+  }
+</style>
+
+</head>
+<body>
+  <form id="js-test-form">
+    <div id="question-1" class="question-block">
+      <h2>Вопрос №1 из 12: Для чего можно использовать JavaScript?</h2>
+      <label><input type="radio" name="answers-1" value="create_program">Для создания самостоятельной исполняемой программы</label><br>
+      <label><input type="radio" name="answers-1" value="event_handling">Для обработки событий на web-странице</label><br>
+      <label><input type="radio" name="answers-1" value="add_dynamics">Для добавления динамики и 'интеллекта' в web-страницу</label><br>
+      <label><input type="radio" name="answers-1" value="all_correct">Все варианты верны</label>
+    </div>
+
+    <div id="question-2" class="question-block" style="display: none;">
+      <h2>Вопрос №2 из 12: Какой синтаксис используется для создания функции в JavaScript?</h2>
+      <label><input type="radio" name="answers-2" value="function_myFunction">function:myFunction() {}</label><br>
+      <label><input type="radio" name="answers-2" value="function myFunction">function myFunction() {}</label><br>
+      <label><input type="radio" name="answers-2" value="function_equals">function = myFunction() {}</label><br>
+      <label><input type="radio" name="answers-2" value="function_colon">function::myFunction() {}</label>
+    </div>
+
+    <div id="question-3" class="question-block" style="display: none;">
+      <h2>Вопрос №3 из 12: Что делает оператор ===?</h2>
+      <label><input type="radio" name="answers-3" value="compares_values_types">Сравнивает и значения, и типы, без преобразования типов</label><br>
+      <label><input type="radio" name="answers-3" value="compares_values">Сравнивает только значения, преобразуя типы</label><br>
+      <label><input type="radio" name="answers-3" value="assigns_value">Присваивает значение</label><br>
+      <label><input type="radio" name="answers-3" value="none_of_above">Ничего из вышеперечисленного</label>
+    </div>
+    
+    <div id="question-4" class="question-block" style="display: none;">
+      <h2>Вопрос №4 из 12: Какое ключевое слово используется для объявления константы?</h2>
+      <label><input type="radio" name="answers-4" value="var">var</label><br>
+      <label><input type="radio" name="answers-4" value="let">let</label><br>
+      <label><input type="radio" name="answers-4" value="const">const</label><br>
+      <label><input type="radio" name="answers-4" value="static">static</label>
+    </div>
+    
+    <div id="question-5" class="question-block" style="display: none;">
+      <h2>Вопрос №5 из 12: Какой метод массива добавляет элемент в конец массива?</h2>
+      <label><input type="radio" name="answers-5" value="unshift">unshift()</label><br>
+      <label><input type="radio" name="answers-5" value="shift">shift()</label><br>
+      <label><input type="radio" name="answers-5" value="push">push()</label><br>
+      <label><input type="radio" name="answers-5" value="pop">pop()</label>
+    </div>
+    
+    <div id="question-6" class="question-block" style="display: none;">
+      <h2>Вопрос №6 из 12: Что возвращает метод Array.prototype.map()?</h2>
+      <label><input type="radio" name="answers-6" value="modifies_array">Модифицирует исходный массив и возвращает его</label><br>
+      <label><input type="radio" name="answers-6" value="new_array">Новый массив, содержащий результаты вызова функции для каждого элемента</label><br>
+      <label><input type="radio" name="answers-6" value="element_count">Количество элементов в массиве</label><br>
+      <label><input type="radio" name="answers-6" value="first_element">Первый элемент массива</label>
+    </div>
+    
+    <div id="question-7" class="question-block" style="display: none;">
+      <h2>Вопрос №7 из 12: Какой объект в JavaScript представляет глобальную область видимости?</h2>
+      <label><input type="radio" name="answers-7" value="document">Document</label><br>
+      <label><input type="radio" name="answers-7" value="window">Window</label><br>
+      <label><input type="radio" name="answers-7" value="global">Global</label><br>
+      <label><input type="radio" name="answers-7" value="this">This</label>
+    </div>
+    
+    <div id="question-8" class="question-block" style="display: none;">
+      <h2>Вопрос №8 из 12: Какая инструкция используется для обработки исключений в JavaScript?</h2>
+      <label><input type="radio" name="answers-8" value="try_then">try...then</label><br>
+      <label><input type="radio" name="answers-8" value="try_catch">try...catch</label><br>
+      <label><input type="radio" name="answers-8" value="error_catch">error...catch</label><br>
+      <label><input type="radio" name="answers-8" value="do_while">do...while</label>
+    </div>
+    
+    <div id="question-9" class="question-block" style="display: none;">
+      <h2>Вопрос №9 из 12: Что такое замыкание в JavaScript?</h2>
+      <label><input type="radio" name="answers-9" value="object_closure">Объект, закрывающий доступ к своим методам</label><br>
+      <label><input type="radio" name="answers-9" value="function_scope">Функция вместе со всеми внешними переменными, которые ей доступны</label><br>
+      <label><input type="radio" name="answers-9" value="code_block">Конструкция для закрытия текущего блока кода</label><br>
+      <label><input type="radio" name="answers-9" value="design_pattern">Паттерн проектирования</label>
+    </div>
+    
+    <div id="question-10" class="question-block" style="display: none;">
+      <h2>Вопрос №10 из 12: Какой метод используется для преобразования JSON в объект JavaScript?</h2>
+      <label><input type="radio" name="answers-10" value="stringify">JSON.stringify()</label><br>
+      <label><input type="radio" name="answers-10" value="parse">JSON.parse()</label><br>
+      <label><input type="radio" name="answers-10" value="toObject">JSON.toObject()</label><br>
+      <label><input type="radio" name="answers-10" value="toJS">JSON.toJS()</label>
+    </div>
+    
+    <div id="question-11" class="question-block" style="display: none;">
+      <h2>Вопрос №11 из 12: Что такое Promise в JavaScript?</h2>
+      <label><input type="radio" name="answers-11" value="callback">Функция обратного вызова для асинхронных операций</label><br>
+      <label><input type="radio" name="answers-11" value="async_result">Объект, представляющий завершение (или провал) асинхронной операции и её результат</label><br>
+      <label><input type="radio" name="answers-11" value="loop_method">Способ организации циклов</label><br>
+      <label><input type="radio" name="answers-11" value="temp_variable">Переменная, хранящая временное значение</label>
+    </div>
+    
+    <div id="question-12" class="question-block" style="display: none;">
+      <h2>Вопрос №12 из 12: Какой оператор используется для определения типа переменной в JavaScript?</h2>
+      <label><input type="radio" name="answers-12" value="typeof_function">typeof()</label><br>
+      <label><input type="radio" name="answers-12" value="typeof_operator">typeof</label><br>
+      <label><input type="radio" name="answers-12" value="type_function">type()</label><br>
+      <label><input type="radio" name="answers-12" value="getType">getType()</label>
+    </div>
+
+    <button type="button" onclick="nextQuestion()">Следующий вопрос</button>
+    <button type="button" onclick="checkAnswers()">Ответить</button>
+    <p id="time-left">Осталось: <span id="timer">30</span> секунд</p>
+  </form>
+
+  <script>
+    let currentQuestion = 1;
+    const totalQuestions = 12;
+    let correctAnswerCount = 0;
+
+    function encodeAnswers(answer) {
+      return answer.split('').map(char => char.charCodeAt(0) + 5).join('-');
+    }
+
+    const correctAnswers = {
+  "1": "102-113-113-100-104-116-119-119-106-104-121",
+  "2": "107-122-115-104-121-110-116-115-37-114-126-75-122-115-104-121-110-116-115",
+  "3": "104-116-114-117-102-119-106-120-100-123-102-113-122-106-120-100-121-126-117-106-120",
+  "4": "104-116-115-120-121",
+  "5": "117-122-120-109",
+  "6": "115-106-124-100-102-119-119-102-126",
+  "7": "124-110-115-105-116-124",
+  "8": "121-119-126-100-104-102-121-104-109",
+  "9": "107-122-115-104-121-110-116-115-100-120-104-116-117-106",
+  "10": "117-102-119-120-106",
+  "11": "102-120-126-115-104-100-119-106-120-122-113-121",
+  "12": "121-126-117-106-116-107-100-116-117-106-119-102-121-116-119"
+};
+
+
+function nextQuestion() {
+  if (currentQuestion < totalQuestions) {
+    document.getElementById(`question-${currentQuestion}`).style.display = 'none';
+    currentQuestion++;
+    if (document.getElementById(`question-${currentQuestion}`)) {
+      document.getElementById(`question-${currentQuestion}`).style.display = 'block';
+    }
+    restartTimer();
+  } else {
+    showResults();
+  }
+}
+
+function checkAnswers() {
+  const questionId = `question-${currentQuestion}`;
+  const userAnswers = [];
+  const inputs = document.querySelectorAll(`#${questionId} input[name="answers-${currentQuestion}"]:checked`);
+
+  inputs.forEach(input => {
+    userAnswers.push(input.value);
+  });
+  const encodedUserAnswers = encodeAnswers(userAnswers.join(','));
+
+  if (encodedUserAnswers === correctAnswers[currentQuestion]) {
+    correctAnswerCount++; 
+  }
+  nextQuestion(); 
+}
+
+
+    function startTimer(duration, display) {
+      let timer = duration;
+      clearInterval(window.currentInterval); 
+      window.currentInterval = setInterval(function () {
+        const seconds = parseInt(timer % 60, 10);
+        display.textContent = seconds < 10 ? "0" + seconds : seconds;
+
+        if (--timer < 0) {
+          clearInterval(window.currentInterval);
+          alert('Время вышло!');
+          nextQuestion();
+        }
+      }, 1000);
+    }
+
+    function restartTimer() {
+      const timeLeftDisplay = document.querySelector('#timer');
+      startTimer(30, timeLeftDisplay);
+    }
+
+    window.onload = function () {
+      restartTimer();
+      for (let i = 1; i <= totalQuestions; i++) {
+        const questionDiv = document.getElementById(`question-${i}`);
+        if (questionDiv) {
+          questionDiv.style.display = i === 1 ? 'block' : 'none';
+        }
+      }
+    };
+
+    function showResults() {
+  alert(`Вы ответили правильно на ${correctAnswerCount} из ${totalQuestions} вопросов.`);
+  if (confirm("Хотите ли вы повторить тест?")) {
+    restartTest();
+  }
+}
+
+function restartTest() {
+  correctAnswerCount = 0; 
+  currentQuestion = 1;
+  document.querySelectorAll('.question-block').forEach((div) => {
+    div.style.display = 'none';
+  });
+  document.getElementById(`question-1`).style.display = 'block'; 
+  restartTimer(); 
+}
+  </script>
+</body>
+</html>

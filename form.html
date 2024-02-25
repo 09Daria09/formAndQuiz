@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Форма регистрации</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #e7eff6;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .registration-form {
+    background-color: #f0f4f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+  }
+  .registration-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .registration-form label {
+    color: #333;
+    display: block;
+    margin-top: 10px;
+  }
+  .registration-form input[type="text"],
+  .registration-form input[type="password"],
+  .registration-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #b6c2ce;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .registration-form input[type="radio"],
+  .registration-form input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  .registration-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5a8dca;
+    color: white;
+    cursor: pointer;
+  }
+  .registration-form button:hover {
+    background-color: #487bb1;
+  }
+</style>
+</head>
+<body>
+<div class="form-container">
+  <form class="registration-form">
+    <h2>Регистрация</h2>
+    <label>Логин: <input type="text" name="login"></label>
+    <label>Пароль: <input type="password" name="password"></label>
+    <label>Подтверждение: <input type="password" name="confirm"></label>
+    <label>Полное имя: <input type="text" name="fullname"></label>
+    <label>Пол: 
+      <input type="radio" name="gender" value="male"> М
+      <input type="radio" name="gender" value="female"> Ж
+    </label>
+    <label>Специализация: 
+      <input type="checkbox" name="specialization" value="design"> Дизайн
+      <input type="checkbox" name="specialization" value="programming"> Программирование
+      <input type="checkbox" name="specialization" value="administration"> Администрирование
+    </label>
+    <label>Должность: 
+      <select name="position">
+        <option value="">Выберите...</option>
+        <option value="director">Директор</option>
+        <option value="deputy">Заместитель директора</option>
+        <option value="project_manager">Руководитель проекта</option>
+      </select>
+    </label>
+    <button type="submit">Регистрация</button>
+    <button type="reset">Сброс</button>
+  </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.querySelector('.registration-form');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        const login = form.querySelector('input[name="login"]').value;
+        const password = form.querySelector('input[name="password"]').value;
+        const confirmPassword = form.querySelector('input[name="confirm"]').value;
+        const fullName = form.querySelector('input[name="fullname"]').value;
+        const gender = form.querySelector('input[name="gender"]:checked');
+        const specialization = form.querySelectorAll('input[name="specialization"]:checked');
+        const position = form.querySelector('select[name="position"]').value;
+    
+        if (!login || !password || !confirmPassword || !fullName || !gender || specialization.length === 0 || !position) {
+          alert('Все поля должны быть заполнены.');
+          return;
+        }
+    
+        if (password.length < 3) {
+          alert('Длина пароля должна быть от 3 символов.');
+          return;
+        }
+    
+        if (password !== confirmPassword) {
+          alert('Пароли не совпадают.');
+          return;
+        }
+        const specArray = Array.from(specialization).map(el => el.value);
+const style = `
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td, th {
+      border: 1px solid #a0b1c5;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #e7eff6;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f7fb;
+    }
+    tr:hover {
+      background-color: #e7eff6;
+    }
+  </style>
+`;
+
+const dataHTML = `
+  ${style}
+  <table>
+    <tr><th>Логин:</th><td>${login}</td></tr>
+    <tr><th>Полное имя:</th><td>${fullName}</td></tr>
+    <tr><th>Пол:</th><td>${gender.value}</td></tr>
+    <tr><th>Специализация:</th><td>${specArray.join(', ')}</td></tr>
+    <tr><th>Должность:</th><td>${position}</td></tr>
+  </table>
+`;
+
+const dataWindow = window.open('', 'DataWindow', 'width=400,height=300');
+dataWindow.document.write(dataHTML);
+      });
+    });
+    </script>
+    
+</body>
+</html>
